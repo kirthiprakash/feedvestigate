@@ -7,6 +7,6 @@
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x",
-    "facebook-node-sdk" :"0.2.0",
+    "facebook-node-sdk" :"0.2.0"
   }
 }
