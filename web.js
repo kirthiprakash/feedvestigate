@@ -1,12 +1,9 @@
 var express = require("express");
+var Facebook = require('facebook-node-sdk');
+
 var app = express();
 app.use(express.logger());
 
-app.get('/', function(request, response) {
-  response.send('Hello World!');
-});
-
-var Facebook = require('facebook-node-sdk');
 
 app.configure(function () {
   app.use(express.bodyParser());
@@ -20,6 +17,10 @@ app.get('/lo', Facebook.loginRequired(), function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello, ' + user.name + '!');
   });
+});
+
+app.get('/', function(request, response) {
+  response.send('Hello World!');
 });
 
 var port = process.env.PORT || 5000;
