@@ -15,11 +15,12 @@ app.configure(function () {
 app.get('/lo', Facebook.loginRequired(), function (req, res) {
   req.facebook.api('/me?fields=feed', function(err, user) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello, ' + user + '!');
-  });
+    res.end('Hello, ' + JSON.stringify(user) + '!'); });
 });
 
 app.get('/', function(request, response) {
+  d = {hello :'3', hi :'4'}
+  console.log(JSON.stringify(d))
   response.send('Hello World!');
 });
 
