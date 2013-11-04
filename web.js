@@ -9,11 +9,11 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'foo bar' }));
-  app.use(Facebook.middleware({ appId: '666840666680350', secret: 'c7a45ca8bd121cd3a543ece4b7bf4dc9' }));
+  app.use(Facebook.middleware({ appId: '666840666680350', secret: 'c7a45ca8bd121cd3a543ece4b7bf4dc9',scope:'read_stream'}));
 });
 
 app.get('/lo', Facebook.loginRequired(), function (req, res) {
-  req.facebook.api('/me', function(err, user) {
+  req.facebook.api('/me?fields=feed', function(err, user) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello, ' + user.name + '!');
   });
