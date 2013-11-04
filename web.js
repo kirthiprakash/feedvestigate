@@ -15,7 +15,7 @@ app.configure(function () {
 app.get('/lo', Facebook.loginRequired(), function (req, res) {
   req.facebook.api('/me?fields=feed', function(err, user) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello, ' + user.name + '!');
+    res.end('Hello, ' + user + '!');
   });
 });
 
