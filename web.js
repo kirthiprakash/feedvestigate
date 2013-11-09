@@ -9,7 +9,7 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'foo bar' }));
-  app.use(Facebook.middleware({ appId: '666840666680350', secret: 'c7a45ca8bd121cd3a543ece4b7bf4dc9',scope:'read_stream'}));
+  app.use(Facebook.middleware({ appId: '666840666680350', secret: 'c7a45ca8bd121cd3a543ece4b7bf4dc9'}));
 });
 
 app.get('/lo', Facebook.loginRequired(), function (req, res) {
