@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Hello boys</title>
+		<script>
+			function fv(){
+			$.ajax({
+			url: '/feedvestigate?date='+cal.currentDate.getTime(),
+			method: 'GET',
+			success: function(resp){
+	$('body').append(resp);				
+			}
+		})
+			}
+		</script>
+	</head>
+	<body>
+		<div class="date-selector" id="date-select"></div>
+		<div class="btn" onClick="fv(this);">Feedvestigate</div>
+	</body>
+	<script type="text/javascript" src="steal/steal.js"></script>
+	<script>steal('steal/ui.js');</script>
+</html>
