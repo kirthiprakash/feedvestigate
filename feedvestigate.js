@@ -3,7 +3,7 @@ function home(req, res){
 }
 
 function feedvestigate(req, res){
-	res.facebook.api('me?fields=feed', function(err, resp){
+	req.facebook.api('me?fields=feed', function(err, resp){
 	res.writeHead(200, {'Content-Type':'text/plain'});
 	res.end(JSON.stringify(resp));
 });
