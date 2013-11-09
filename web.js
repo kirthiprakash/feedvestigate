@@ -12,7 +12,7 @@ app.configure(function () {
   app.use(Facebook.middleware({ appId: '666840666680350', secret: 'c7a45ca8bd121cd3a543ece4b7bf4dc9'}));
 });
 
-app.get('/lo', Facebook.loginRequired(), function (req, res) {
+app.get('/lo', Facebook.loginRequired({scope:'read_stream'}), function (req, res) {
   req.facebook.api('/me?fields=feed', function(err, user) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello, ' + JSON.stringify(user) + '!'); });
