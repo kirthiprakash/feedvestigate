@@ -24,7 +24,7 @@ app.get('/lo', Facebook.loginRequired({scope:'read_stream'}), function (req, res
 });
 
 app.get('/', feedvestigate.home) 
-app.get('/feedvestigate', Facebook.loginRequired({scope:'read_stream'}), feedvestigate.feedvestigate)
+app.post('/feedvestigate', Facebook.loginRequired({scope:'read_stream'}), feedvestigate.feedvestigate)
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {

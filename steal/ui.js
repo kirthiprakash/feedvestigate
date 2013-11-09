@@ -4,6 +4,8 @@ st = st.then("public/css/index.css");
 st = st.then("public/calendarPicker/jquery.calendarPicker.js", "public/calendarPicker/jquery.calendarPicker.css");
 st.then(function($) {
 	$(document).ready(function($) {
-		cal = $("#date-select").calendarPicker({});
+		cal = $("#date-select").calendarPicker({callback:function(calen){
+							$('#date-field').val(calen.currentDate.getTime());
+						}});
 	});
 });

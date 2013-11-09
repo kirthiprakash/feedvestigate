@@ -15,7 +15,10 @@
 	</head>
 	<body>
 		<div class="date-selector" id="date-select"></div>
-		<div class="btn" onClick="fv(this);">Feedvestigate</div>
+		<form id="fvid" method="POST" action="/feedvestigate">
+			<input id="date-field" name="date" type="text"/>
+			<input class="btn" type="submit">Feedvestigate</div>
+		</form>
 	</body>
 	<script type="text/javascript" src="steal/steal.js"></script>
 	<script>steal('steal/ui.js');</script>
