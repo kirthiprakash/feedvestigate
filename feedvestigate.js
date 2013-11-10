@@ -5,7 +5,7 @@ function home(req, res){
 function feedvestigate(req, res){
 	var date = req.query.date;
 	console.log(date);
-	var url = 'me/feed?limit=25&until=1379433307';
+	var url = '/me/feed?limit=25&until='+date;
 	req.facebook.api(url, function(err, resp){
 	res.writeHead(200, {'Content-Type':'text/plain'});
 	res.end('url: '+url+' ERROR: '+err+' Resp: '+JSON.stringify(resp));
