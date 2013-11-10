@@ -10,7 +10,7 @@ function feedvestigate(req, res){
 	date.setMinutes(0);
 	date.setSeconds(0);
 	date.setMilliseconds(0);
-	date = date/1000;
+	date = date.getTime()/1000;
 	nextDate = date + 86400;
 	var url = '/me/feed?limit=25&until='+nextDate+'&since='+date;
 	req.facebook.api(url, function(err, resp){
