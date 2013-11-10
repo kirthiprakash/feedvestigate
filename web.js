@@ -23,6 +23,20 @@ app.get('/lo', Facebook.loginRequired({scope:'read_stream'}), function (req, res
     res.end('Hello, ' + JSON.stringify(user) + '!'); });
 });
 
+app.get('/local_feedvestigate', function(req, res){
+	var dateStr = req.query.date;
+	console.log(date);
+	var date = new Date(Number(dateStr));
+	console.log(date)
+	date.setHours(0);
+	date.setMinutes(0);
+	date.setSeconds(0);
+	date.setMilliseconds(0);
+	date = date.getTime()/1000;
+	nextDate = date + 86400;
+	res.end(date+'&'+nextDate);
+});
+
 app.get('/', feedvestigate.home) 
 app.get('/feedvestigate', Facebook.loginRequired({scope:'read_stream'}), feedvestigate.feedvestigate)
 

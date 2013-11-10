@@ -5,7 +5,7 @@ function home(req, res){
 function feedvestigate(req, res){
 	var dateStr = req.query.date;
 	console.log(date);
-	var date = new Date(dateStr);
+	var date = new Date(Number(dateStr));
 	date.setHours(0);
 	date.setMinutes(0);
 	date.setSeconds(0);
