@@ -17,8 +17,8 @@ function feedvestigate(req, res) {
 	var url = '/me/feed?until=' + nextDate + '&since=' + date;
 	req.facebook.api(url, function(err, resp) {
 		var data = resp.data;
-		var simpleData = utils.simplify(data, "658578183");
-		var treeData = utils.treenify(simpleData);
+		var simpleData = utils.parse.simplify(data, "658578183");
+		var treeData = utils.parse.treenify(simpleData);
 		res.writeHead(200, {
 			'Content-Type' : 'text/plain'
 		});

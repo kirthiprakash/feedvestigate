@@ -1131,5 +1131,4 @@ utils = {
 
 // var simple = utils.simplify();
 // utils.treenify(simple);
-exports.simplify = utils.simplify;
-exports.treenify = utils.treenify;
+exports.parse = utils;
