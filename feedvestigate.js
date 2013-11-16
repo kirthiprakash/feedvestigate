@@ -25,11 +25,14 @@ function feedvestigate(req, res) {
 		return fbDataArrLength != 0;
 	}, function(next) {
 		req.facebook.api(url, function(err, resp) {
+			console.log('length of fb arr: ' + resp.data.length);
+			console.log('length of data arr: ' + dataArr.length);
 			var fbDataArr = resp.data;
 			fbDataArrLength = fbDataArr.length;
 			dataArr = dataArr.concat(fbDataArr);
 			url = resp.paging.next + 'since=' + date;
 		});
+		next();
 	}, function(err) {
 		if (!err) {
 			var id = dataArr[0].to.data.id;
