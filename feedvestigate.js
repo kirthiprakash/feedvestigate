@@ -25,6 +25,7 @@ function feedvestigate(req, res) {
 		return fbDataArrLength != 0;
 	}, function(next) {
 		req.facebook.api(url, function(err, resp) {
+			console.log('error info on fb req: ' + err);
 			console.log('length of fb arr: ' + resp.data.length);
 			console.log('length of data arr: ' + dataArr.length);
 			var fbDataArr = resp.data;
