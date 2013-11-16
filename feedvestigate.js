@@ -1,4 +1,5 @@
 var utils = require('./utils/utils');
+var async = require('async');
 
 function home(req, res) {
 	res.sendfile('views/index.html');
@@ -13,16 +14,34 @@ function feedvestigate(req, res) {
 	date.setSeconds(0);
 	date.setMilliseconds(0);
 	date = date.getTime() / 1000;
+	// 86400sec -> 1 day
 	nextDate = date + 86400;
-	var url = '/me/feed?until=' + nextDate + '&since=' + date;
-	req.facebook.api(url, function(err, resp) {
-		var data = resp.data;
-		var simpleData = utils.parse.simplify(data, "658578183");
-		var treeData = utils.parse.treenify(simpleData);
-		res.writeHead(200, {
-			'Content-Type' : 'text/plain'
+	var patt = /^.*until=(.*)$/;
+	var dataArr = [];
+	var url = '/me/feed?until=' + nextDate + '&since=' + date + 'limit=100';
+	var fbDataArrLength = 999;
+
+	async.whilst(function() {
+		return fbDataArrLength != 0;
+	}, function(next) {
+		req.facebook.api(url, function(err, resp) {
+			var fbDataArr = resp.data;
+			fbDataArrLength = fbDataArr.length;
+			dataArr = dataArr.concat(fbDataArr);
+			url = resp.paging.next + 'since=' + date;
 		});
-		res.end('url: ' + url + ' ERROR: ' + err + ' Resp: ' + treeData);
+	}, function(err) {
+		if (!err) {
+			var id = dataArr[0].to.data.id;
+			var simpleData = utils.parse.simplify(dataArr, id);
+			var treeData = utils.parse.treenify(simpleData);
+			res.writeHead(200, {
+				'Content-Type' : 'text/plain'
+			});
+			res.end('url: ' + url + ' ERROR: ' + err + 'size: ' + data.length + ' Resp: ' + treeData);
+		} else {
+			console.log(err);
+		}
 	});
 }
 
