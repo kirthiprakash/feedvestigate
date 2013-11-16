@@ -19,7 +19,7 @@ function feedvestigate(req, res) {
 	var patt = /^.*until=(.*)$/;
 	var dataArr = [];
 	var url = '/me/feed?until=' + nextDate + '&since=' + date + 'limit=100';
-	var fbDataArrLength = 999;
+	var fbDataArrLength = 5;
 
 	req.facebook.api(url, function(err, resp) {
 		console.log('dummy');
@@ -28,17 +28,18 @@ function feedvestigate(req, res) {
 	});
 
 	async.whilst(function() {
-		return fbDataArrLength != 0;
+		return fbDataArrLength < 1;
 	}, function(next) {
-		req.facebook.api(url, function(err, resp) {
-			console.log('error info on fb req: ' + err);
-			console.log('length of fb arr: ' + resp.data.length);
-			console.log('length of data arr: ' + dataArr.length);
-			var fbDataArr = resp.data;
-			fbDataArrLength = fbDataArr.length;
-			dataArr = dataArr.concat(fbDataArr);
-			url = resp.paging.next + 'since=' + date;
-		});
+		// req.facebook.api(url, function(err, resp) {
+			// console.log('error info on fb req: ' + err);
+			// console.log('length of fb arr: ' + resp.data.length);
+			// console.log('length of data arr: ' + dataArr.length);
+			// var fbDataArr = resp.data;
+			// fbDataArrLength = fbDataArr.length;
+			// dataArr = dataArr.concat(fbDataArr);
+			// url = resp.paging.next + 'since=' + date;
+		// });
+		fbDataArrLength -= 1;
 		next();
 	}, function(err) {
 		if (!err) {
