@@ -42,7 +42,7 @@ function feedvestigate(req, res) {
 		next();
 	}, function(err) {
 		if (!err) {
-			var id = dataArr[0].to.data.id;
+			var id = "658578183";
 			var simpleData = utils.parse.simplify(dataArr, id);
 			var treeData = utils.parse.treenify(simpleData);
 			res.writeHead(200, {
