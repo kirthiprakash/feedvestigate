@@ -21,6 +21,12 @@ function feedvestigate(req, res) {
 	var url = '/me/feed?until=' + nextDate + '&since=' + date + 'limit=100';
 	var fbDataArrLength = 999;
 
+	req.facebook.api(url, function(err, resp) {
+		console.log('dummy');
+		console.log(err);
+		console.log(resp.data.length);
+	});
+
 	async.whilst(function() {
 		return fbDataArrLength != 0;
 	}, function(next) {
