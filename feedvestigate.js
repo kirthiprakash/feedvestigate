@@ -23,25 +23,24 @@ function feedvestigate(req, res) {
 	var fbDataArrLength = 9999;
 
 	async.whilst(function() {
-		console.log('condition: ' + fbUntil > date);
-		// return fbDataArrLength > 1;
-		return fbUntil > date;
+		console.log('condition');
+		console.log(fbDataArrLength > 1);
+		return fbDataArrLength > 1;
 	}, function(next) {
+		console.log(url);
 		req.facebook.api(url, function(err, resp) {
+			console.log('-----------start--------');
 			console.log('error info on fb req: ' + err);
 			console.log('length of fb arr: ' + resp.data.length);
 			console.log('length of data arr: ' + dataArr.length);
+			console.log('----------end---------');
 			var fbDataArr = resp.data;
 			fbDataArrLength = fbDataArr.length;
 			dataArr = dataArr.concat(fbDataArr);
-			console.log(dataArr.length);
-			fbUntil = patt.exec(url)[1];
-			fbUntil = Number(fbUntil);
-			console.log(url);
-			url = resp.paging.next + '&since=' + date;
-			console.log(url);
+			url = resp.paging.next;
+			url = url + '&since=' + date;
+			next();
 		});
-		next();
 	}, function(err) {
 		if (!err) {
 			var id = "658578183";
