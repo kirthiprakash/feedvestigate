@@ -48,10 +48,18 @@ function feedvestigate(req, res) {
 			var id = "658578183";
 			var simpleData = utils.parse.simplify(dataArr, id);
 			var treeData = utils.parse.treenify(simpleData);
-			res.writeHead(200, {
-				'Content-Type' : 'text/plain'
-			});
-			res.end('url: ' + url + ' ERROR: ' + err + ' Resp: ' + treeData);
+			var dtree = utils.parse.d3fy(treeData);
+			var d3dic = {
+				"name" : "Facebook birthday wishes",
+				'children' : dtree
+			};
+			res.render('views/visualize.ejs', d3dic);
+
+			// res.writeHead(200, {
+			// 'Content-Type' : 'text/plain'
+			// });
+			// res.end('url: ' + url + ' ERROR: ' + err + ' Resp: ' + treeData);
+
 		} else {
 			console.log(err);
 		}
