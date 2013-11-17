@@ -37,8 +37,12 @@ function feedvestigate(req, res) {
 			var fbDataArr = resp.data;
 			fbDataArrLength = fbDataArr.length;
 			dataArr = dataArr.concat(fbDataArr);
-			url = resp.paging.next;
-			url = url + '&since=' + date;
+			if (resp.hasOwnProperty('paging')) {
+				url = resp.paging.next;
+				url = url + '&since=' + date;
+			} else {
+				fbDataArrLength = 0;
+			}
 			next();
 		});
 	}, function(err) {
