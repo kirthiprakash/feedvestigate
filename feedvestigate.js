@@ -53,7 +53,10 @@ function feedvestigate(req, res) {
 				"name" : "Facebook birthday wishes",
 				'children' : dtree
 			};
-			res.render('views/visualize.ejs', d3dic);
+			fbJsonStr = {
+				'fbJsonToken' : d3dic
+			};
+			res.render('views/visualize.ejs', fbJsonStr);
 
 			// res.writeHead(200, {
 			// 'Content-Type' : 'text/plain'
