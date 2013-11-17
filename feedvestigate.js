@@ -18,6 +18,7 @@ function feedvestigate(req, res) {
 	nextDate = date + 86400;
 	var patt = /^.*until=(.*)$/;
 	var dataArr = [];
+	var fbUntil = date + 999;
 	var url = '/me/feed?until=' + nextDate + '&since=' + date + '&limit=100';
 	var fbDataArrLength = 9999;
 
@@ -34,7 +35,7 @@ function feedvestigate(req, res) {
 			fbDataArrLength = fbDataArr.length;
 			dataArr = dataArr.concat(fbDataArr);
 			console.log(dataArr.length);
-			var fbUntil = patt.exec(url)[1];
+			fbUntil = patt.exec(url)[1];
 			fbUntil = Number(fbUntil);
 			console.log(url);
 			url = resp.paging.next + '&since=' + date;
