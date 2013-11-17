@@ -22,8 +22,9 @@ function feedvestigate(req, res) {
 	var fbDataArrLength = 9999;
 
 	async.whilst(function() {
-		console.log('condition: ' + fbDataArrLength < 1);
-		return fbDataArrLength > 1;
+		console.log('condition: ' + fbUntil > date);
+		// return fbDataArrLength > 1;
+		return fbUntil > date;
 	}, function(next) {
 		req.facebook.api(url, function(err, resp) {
 			console.log('error info on fb req: ' + err);
@@ -33,7 +34,11 @@ function feedvestigate(req, res) {
 			fbDataArrLength = fbDataArr.length;
 			dataArr = dataArr.concat(fbDataArr);
 			console.log(dataArr.length);
+			var fbUntil = patt.exec(url)[1];
+			fbUntil = Number(fbUntil);
+			console.log(url);
 			url = resp.paging.next + '&since=' + date;
+			console.log(url);
 		});
 		next();
 	}, function(err) {
