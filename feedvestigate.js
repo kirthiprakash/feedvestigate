@@ -33,7 +33,7 @@ function feedvestigate(req, res) {
 			fbDataArrLength = fbDataArr.length;
 			dataArr = dataArr.concat(fbDataArr);
 			console.log(dataArr.length);
-			url = resp.paging.next + 'since=' + date;
+			url = resp.paging.next + '&since=' + date;
 		});
 		next();
 	}, function(err) {
