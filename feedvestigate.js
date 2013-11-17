@@ -48,7 +48,7 @@ function feedvestigate(req, res) {
 			res.writeHead(200, {
 				'Content-Type' : 'text/plain'
 			});
-			res.end('url: ' + url + ' ERROR: ' + err + 'size: ' + data.length + ' Resp: ' + treeData);
+			res.end('url: ' + url + ' ERROR: ' + err + ' Resp: ' + treeData);
 		} else {
 			console.log(err);
 		}
