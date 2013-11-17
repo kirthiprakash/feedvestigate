@@ -40,8 +40,6 @@ function feedvestigate(req, res) {
 			if (resp.hasOwnProperty('paging')) {
 				url = resp.paging.next;
 				url = url + '&since=' + date;
-			} else {
-				fbDataArrLength = 0;
 			}
 			next();
 		});
