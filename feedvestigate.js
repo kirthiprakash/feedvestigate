@@ -23,7 +23,7 @@ function feedvestigate(req, res) {
 
 	async.whilst(function() {
 		console.log('condition: ' + fbDataArrLength < 1);
-		return fbDataArrLength < 1;
+		return fbDataArrLength > 1;
 	}, function(next) {
 		req.facebook.api(url, function(err, resp) {
 			console.log('error info on fb req: ' + err);
