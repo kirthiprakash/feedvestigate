@@ -44,23 +44,18 @@ function feedvestigate(req, res) {
 			next();
 		});
 	}, function(err) {
-		console.log('finished whilst loop.');
 		if (!err) {
-			console.log('no error during whilst');
 			var id = "658578183";
 			var simpleData = utils.parse.simplify(dataArr, id);
 			var treeData = utils.parse.treenify(simpleData);
 			var dtree = utils.parse.d3fy(treeData);
-			console.log('dtree:');
-			console.log(dtree);
 			var d3dic = {
 				"name" : "Facebook birthday wishes",
 				'children' : dtree
 			};
 			fbJsonStr = {
-				'fbJsonToken' : d3dic
+				'fbJsonToken' : JSON.stringify(d3dic)
 			};
-			console.log(JSON.stringify(fbJsonStr));
 			res.render('visualize.ejs', fbJsonStr);
 
 			// res.writeHead(200, {

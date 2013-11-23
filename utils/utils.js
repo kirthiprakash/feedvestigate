@@ -76,7 +76,6 @@ utils = {
 	},
 
 	d3fy : function(dictArr) {
-		console.log('^^^^^^^^^^^^^^', JSON.stringify(dictArr), '^^^^^^^^^^^^^');
 		if ( dictArr instanceof Array) {
 			var nodeNameArr = [];
 			for (var index in dictArr) {
@@ -99,7 +98,6 @@ utils = {
 					nodeNameArr = nodeNameArr.concat(tempArr);
 				}
 			}
-			console.log('-------------------', JSON.stringify(nodeNameArr), '---------------------');
 			return nodeNameArr;
 		}
 		childrenArr = [];
@@ -110,7 +108,6 @@ utils = {
 			nodeWish["children"] = this.d3fy(dictArr[key]);
 			childrenArr.push(nodeWish);
 		}
-		console.log('############' + JSON.stringify(childrenArr) + '############');
 		return childrenArr;
 	},
 };
