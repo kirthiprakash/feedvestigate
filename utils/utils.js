@@ -76,7 +76,6 @@ utils = {
 	},
 
 	d3fy : function(dictArr) {
-		console.log('entered d3fy');
 		if ( dictArr instanceof Array) {
 			var nodeNameArr = [];
 			for (var index in dictArr) {
@@ -99,6 +98,7 @@ utils = {
 					nodeNameArr = nodeNameArr.concat(tempArr);
 				}
 			}
+			console.log('-------------------', JSON.stringify(nodeNameArr), '---------------------');
 			return nodeNameArr;
 		}
 		childrenArr = [];
@@ -109,8 +109,7 @@ utils = {
 			nodeWish["children"] = this.d3fy(dictArr[key]);
 			childrenArr.push(nodeWish);
 		}
-		console.log('exiting d3fy');
-		console.log(childrenArr);
+		console.log('############'+childrenArr+'############');
 		return childrenArr;
 	},
 };
@@ -125,5 +124,7 @@ utils = {
 // };
 // console.log(util.inspect(d3dic, false, null));
 // console.log(JSON.stringify(d3dic));
-
+tt =  [{"many":[{"many":[{"happy":[{"returns":[{"of":[{"the":[{"day":[{"maga":["Narendra Kumar D N","Chandru Shekar"]},{"kirthi":["Koteswar Rao Mandapati"]},{"keerthihappy":[{"birthday":["Deepak Srinivasan"]}]},{"kp":[{"njoy":[{"ur":[{"day":["Valmiki Jansi"]}]}]}]},{"god":[{"bless":["Prajval Kundur"]}]}]}]}]}]}]}]},{"more":[{"happy":[{"returns":[{"of":[{"the":[{"day":[{"happy":[{"birthday":["Prakash Hegade"]}]},{"kano":[{"huduga":["Geetha Ramachandra"]}]}]}]}]}]}]}]},{"happy":[{"returns":[{"of":[{"the":[{"day":[{"kp":["Saswati Devi"]},{"kirthi":[{"ve":[{"fun":["Priyanka Manjunath"]}]}]}]}]}]}]}]}]},{"happy":[{"bday":[{"kphave":[{"a":[{"good":[{"one":["Yashaswi S Kumar"]}]}]}]},{"kirthi":["Puja Rao",{"enjoy":[{"madi":["Shitanshu Bhushan"]}]}]},{"maga":["Ajinkya Atul Alekar"]},{"have":[{"a":[{"gr8":[{"yr":[{"ahead":["Madhumitha Ramakrishnan"]}]}]}]}]},{"kppppppppppppppppppp":["Deepthi Karnam"]},{"dude":[{"have":[{"a":[{"good":[{"one":["Omswarup Shourie"]}]}]}]}]},{"bro":["Amit Jain"]},{"kp":["Shashank Chaturvedi","Shashank Chaturvedi"]}]},{"birthday":["Mallik Arjun","Amrutha Iyengar","Lokesh Reddy Naredla","Avinash Maheswarappa","Prathibha Iyengar","Anmol Prakash Gautam","Vindhya Mahadev","Partha Sarkar","Suhas Hegde","Kavitha Narayan","Shivapriya Bj","Siddharth Shanbhogue","Ramya Pradeep","Rashmi Rangaswamy","Divya BV","Divya BV","Shweta Vishal","Divya BV","Divya BV","Smitha Lakshmesha","Vikram Balisavira","Deepthi Gota Vishwanath","Nagaraj Siddi","Kiran Shastry","Hariharan Balakrishnan","Shreyas Parthasararthy","Karthikeyan Venugopal",{"honey":["Anand Rath","Anand Rath","Anand Rath","Anand Rath"]},{"have":[{"a":[{"gr8":[{"year":[{"ahead":["Jayanth Avarur"]}]}]}]}]},{"maga":["Jitendra Prabhakara","Sunag Jainar","Swastik Narayan",{"have":[{"a":[{"great":[{"day":["Shree Vishnu"]}]}]}]}]},{"kirithi":["Adarsh Sharath"]},{"kp":["Ramakrishna Reddy","Dileep Reddy Nannore","Dileep Reddy Nannore","Rashmi R Rao",{"d":["Mukesh Agarwal"]}]},{"kirthi":["Bhavya Gowda","Arvind Ragiphani","Pradeep Penchala"]},{"dude":["Sowkoor Nischal Shetty"]},{"to":[{"you":["Krishna Chandu"]}]},{"god":[{"bless":["Sd Kulkarni"]}]},{"and":[{"many":[{"many":[{"happy":[{"returns":[{"of":[{"the":[{"day":[{"kp":["Mehul Sheth"]}]}]}]}]}]}]}]}]},{"cr":["Naveen Kumar Sadananda","Naveen Kumar Sadananda","Nuthan Santharam"]},{"caam":["Naveen Mallesh"]},{"buddy":["Mohan Kumar"]},{"magaenjoy":[{"maadi":["Vamshi Krishna Reddy"]}]}]},{"bdaykp":["Amitesh Kumar"]},{"birthdays":[{"kirthi":[{"have":[{"a":[{"blast":["Shilpa Somashekar"]}]}]}]}]}]},{"hi":[{"happy":[{"birthday":["Vijetha Shivanna"]}]},{"kirthi":[{"happy":[{"birthday":[{"kano":[{"en":[{"special":[{"ivathu":["Navya Gc"]}]}]}]}]}]}]},{"kirthiwish":[{"you":[{"a":[{"very":[{"happy":[{"bdaygod":[{"blessgood":[{"luck":["Rohini Mallesh"]}]}]}]}]}]}]}]}]},{"huttu":[{"habbada":[{"shubhashayagalu":["Shashi Kanth","Pavan Gururaj"]},{"subhashayagalu":[{"maga":["Nitin Lakkur"]}]}]}]},{"birthday":[{"greetings":[{"kp":["Anargha Biswas"]}]}]},{"hapy":[{"bday":["Prateek Rao"]}]},{"":["ರೇ ಣು"]},{"kp":[{"once":[{"again":[{"happy":[{"bday":["Anup Ravikumar"]}]}]}]}]},{"hey":[{"kirthi":[{"happy":[{"birthday":["Prasanna Naik"]}]}]}]},{"wish":[{"you":[{"many":[{"many":[{"happy":[{"returns":[{"of":[{"the":[{"day":[{"dude":["Nithin Shubhanand"]}]}]}]}]}]}]}]}]}]},{"hello":[{"happy":[{"birthday":[{"dude":["Siddharth Chaurasia"]}]}]}]}];
+dd = utils.d3fy(tt);
+console.log(JSON.stringify(dd));
 exports.parse = utils;
