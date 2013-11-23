@@ -49,11 +49,9 @@ function feedvestigate(req, res) {
 			console.log('no error during whilst');
 			var id = "658578183";
 			var simpleData = utils.parse.simplify(dataArr, id);
-			console.log('simpleData:');
-			console.log(simpleData);
+			console.log('simpleData done');
 			var treeData = utils.parse.treenify(simpleData);
-			console.log('treeData:');
-			console.log(treeData);
+			console.log('treeData done');
 			var dtree = utils.parse.d3fy(treeData);
 			console.log('dtree:');
 			console.log(dtree);
