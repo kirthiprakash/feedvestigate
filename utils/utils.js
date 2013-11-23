@@ -72,7 +72,7 @@ utils = {
 			var value = dict[key];
 			this.bfs(wordsArr, treeArr, value);
 		}
-		return JSON.stringify(treeArr);
+		return treeArr;
 	},
 
 	d3fy : function(dictArr) {
