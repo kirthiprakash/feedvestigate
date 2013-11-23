@@ -19,8 +19,6 @@
 <body>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script>
-		var fbJsonStr = '<%=fbJsonToken%>';
-		var fbJson = JSON.parse(fbJsonStr);
 		var width = 1240;
 		height = 2200;
 
@@ -55,7 +53,7 @@
 		};
 
 		d3.select(self.frameElement).style("height", height + "px");
-
-		draw(null, fbJson);
+		var fbJson = '<%- JSON.stringify(fbJsonToken)%>'
+		draw(null, JSON.parse(fbJson));
 
 	</script>

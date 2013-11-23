@@ -54,7 +54,7 @@ function feedvestigate(req, res) {
 				'children' : dtree
 			};
 			fbJsonStr = {
-				'fbJsonToken' : JSON.stringify(d3dic)
+				'fbJsonToken' : d3dic
 			};
 			res.render('visualize.ejs', fbJsonStr);
 
