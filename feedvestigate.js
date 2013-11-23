@@ -44,11 +44,19 @@ function feedvestigate(req, res) {
 			next();
 		});
 	}, function(err) {
+		console.log('finished whilst loop.');
 		if (!err) {
+			console.log('no error during whilst');
 			var id = "658578183";
 			var simpleData = utils.parse.simplify(dataArr, id);
+			console.log('simpleData:');
+			console.log(simpleData);
 			var treeData = utils.parse.treenify(simpleData);
+			console.log('treeData:');
+			console.log(treeData);
 			var dtree = utils.parse.d3fy(treeData);
+			console.log('dtree:');
+			console.log(dtree);
 			var d3dic = {
 				"name" : "Facebook birthday wishes",
 				'children' : dtree
