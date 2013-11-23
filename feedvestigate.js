@@ -56,6 +56,7 @@ function feedvestigate(req, res) {
 			fbJsonStr = {
 				'fbJsonToken' : d3dic
 			};
+			console.log(JSON.stringify(fbJsonStr));
 			res.render('visualize.ejs', fbJsonStr);
 
 			// res.writeHead(200, {
