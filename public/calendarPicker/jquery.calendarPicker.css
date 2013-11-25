@@ -1,5 +1,5 @@
 .calBox {
-  background-color: #928d81;
+  background-color: #8500EE;
   padding: 2px;
   -moz-border-radius: 4px;
   text-align: center;
@@ -14,7 +14,7 @@
 
 .calYear {
   font-size: 20px;
-  border-bottom: 1px dashed #666;
+  /*border-bottom: 1px dashed #666;*/
   padding-bottom: 5px;
   margin-bottom: 5px
 }
@@ -24,14 +24,14 @@
 }
 
 .calMonth {
-  border-bottom: 1px dashed #666;
+  /*border-bottom: 1px dashed #666;*/
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
 
 .calMonth .calElement {
   font-size: 14px;
-  border: 1px solid #999999;
+  /*border: 1px solid #999999;*/
 }
 
 .calDay {
@@ -39,18 +39,18 @@
 
 .calDay .calElement {
   font-size: 12px;
-  border: 1px solid #999999;
+  /*border: 1px solid green;*/
 }
 
 .calDay .calElement.prev {
-  background: transparent url(images/prev.png) no-repeat 0 18px;
-  width: 6px;
+  background: transparent url(images/prev.png) no-repeat 7 12px;
+  width: 20px;
   height: 35px
 }
 
 .calDay .calElement.next {
-  background: transparent url(images/next.png) no-repeat 0 18px;
-  width: 6px;
+  background: transparent url(images/next.png) no-repeat 3 17px;
+  width: 15px;
   height: 35px;
 }
 
@@ -65,19 +65,19 @@ span.calElement.next:hover, span.calElement.prev:hover {
 
 
 .calElement.selected {
-  background-color: #404040;
-  border: 1px solid #404040;
+  background-color: #2D1150;
+  border: 1px solid #e0e000;
   -moz-border-radius: 3px
 }
 
 span.calElement:hover {
   background-color: #404040;
-  border: 1px solid #404040;
+  border: 1px solid #e0e000;
   -moz-border-radius: 3px;
   cursor: pointer;
 }
 
 .calElement.today {
-  border: 1px solid #e0e000;
-  -moz-border-radius: 3px
+  /*border: 1px solid #e0e000;*/
+  /*-moz-border-radius: 3px*/
 }

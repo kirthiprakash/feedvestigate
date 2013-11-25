@@ -1,3 +1,10 @@
-.date-selector{
-	width: 50%;
+.date-wrapper {
+	position: absolute;
+	right: 25%;
+	left: 25%;
+	top: 100px;
+}
+
+.date-selector {
+	margin: 10px;
 }
