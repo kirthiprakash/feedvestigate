@@ -17,7 +17,9 @@ function feedvestigate(req, res) {
 	// 86400sec -> 1 day
 	nextDate = date + 86400;
 	var patt = /^.*until=(.*)$/;
+	var pageUrlPatt = /^https:\/\/graph.facebook.com\/(\d*)\/feed.*$/;
 	var dataArr = [];
+	var meId = null;
 	var fbUntil = date + 999;
 	var url = '/me/feed?until=' + nextDate + '&since=' + date + '&limit=100';
 	var fbDataArrLength = 9999;
@@ -39,14 +41,17 @@ function feedvestigate(req, res) {
 			dataArr = dataArr.concat(fbDataArr);
 			if (resp.hasOwnProperty('paging')) {
 				url = resp.paging.next;
+				var regexResult = pageUrlPatt.exec(url);
+				if (regexResult && regexResult.length > 1) {
+					meId = regexResult[1];
+				}
 				url = url + '&since=' + date;
 			}
 			next();
 		});
 	}, function(err) {
 		if (!err) {
-			var id = "658578183";
-			var simpleData = utils.parse.simplify(dataArr, id);
+			var simpleData = utils.parse.simplify(dataArr, meId);
 			var treeData = utils.parse.treenify(simpleData);
 			var dtree = utils.parse.d3fy(treeData);
 			var d3dic = {
