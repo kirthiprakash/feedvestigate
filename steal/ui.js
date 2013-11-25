@@ -1,7 +1,7 @@
-var st = steal("public/js/jquery.js", 
+var st = steal("http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", 
 				"public/js/d3.v3.js", 
-				"public/css/bootstrap.css", 
-				"public/js/bootstrap.js",
+				"http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css", 
+				"http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js",
 				"public/css/index.css",
 				"public/calendarPicker/jquery.calendarPicker.js", 
 				"public/calendarPicker/jquery.calendarPicker.css");

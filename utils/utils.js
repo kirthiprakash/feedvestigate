@@ -3,11 +3,15 @@ var util = require('util');
 utils = {
 
 	messageStrip : function(text) {
-		text = text.toLowerCase();
-		text = text.trim();
-		text = text.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
-		text = text.trim();
-		return text;
+		if (text) {
+			text = text.toLowerCase();
+			text = text.trim();
+			text = text.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+			text = text.trim();
+			return text;
+		} else {
+			return '';
+		}
 	},
 
 	simplify : function(feedArr, meId) {
@@ -20,6 +24,9 @@ utils = {
 			if (meId != fromId) {
 				var from = post.from.name;
 				var message = post.message;
+				if (!message) {
+					continue;
+				}
 				message = this.messageStrip(message);
 				if (postFromMap.hasOwnProperty(message)) {
 					postFromMap[message].push(from);
