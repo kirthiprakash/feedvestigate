@@ -15,7 +15,7 @@ function feedvestigate(req, res) {
 	date.setMilliseconds(0);
 	date = date.getTime() / 1000;
 	// 86400sec -> 1 day
-	data = data - 86400;
+	date = date - 86400;
 	nextDate = date + (2 * 86400);
 	var patt = /^.*until=(.*)$/;
 	var pageUrlPatt = /^https:\/\/graph.facebook.com\/(\d*)\/feed.*$/;
