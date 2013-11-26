@@ -7,6 +7,8 @@ var st = steal("http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
 
 st.then(function($) {
 	$(document).ready(function($) {
+		$('#loading').remove();
+		$('body').css({'opacity': 1});
 		cal = $("#date-select").calendarPicker({
 			callback : function(calen) {
 				$('#date-field').val(calen.currentDate.getTime());
