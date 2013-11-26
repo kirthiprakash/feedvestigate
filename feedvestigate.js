@@ -1,3 +1,4 @@
+require('newrelic');
 var utils = require('./utils/utils');
 var async = require('async');
 
