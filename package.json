@@ -2,7 +2,7 @@
   "name": "feedvestigate",
   "version": "0.0.1",
   "dependencies": {
-    "express": "3.1.x",
+    "express": "4.17.x",
     "facebook-node-sdk" :"0.2.0",
     "xtend" : "2.1.1",
     "async" : "0.2.9"
