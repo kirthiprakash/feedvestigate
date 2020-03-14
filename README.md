@@ -1,6 +1,11 @@
 # Feedvestigate
 Feedvestigate scrolls your Facebook feeds and visualizes them on D3 charts
 
+>__Update July 2016__
+
+>3 years since this project, Facebook now launches 45 sec birthday recap video which collates all your birthday wishes.
+>https://thenextweb.com/facebook/2016/07/28/facebook-your-number-one-friend-now-makes-videos-for-your-birthdays/
+
 ## Rationale
 We are often bombarded with tons of birthday wishes on our Facebook wall.
 Friends, best friends, childhood friends, aquintances, why-is-this-person-on-my-list friends, 
